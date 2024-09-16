@@ -1,10 +1,29 @@
-let ps=[{pid:1,n:'Laptop',c:999},{pid:2,n:'Smartphone',c:599},{pid:3,n:'Headphones',c:199}];
+let products = [
+    { id: 1, name: 'Laptop', price: 999 },
+    { id: 2, name: 'Smartphone', price: 599 },
+    { id: 3, name: 'Headphones', price: 199 }
+];
 
-function gp(id){for(let p of ps){if(p.pid==id)return p;}return null;}
+function getProduct(id) { 
+    for (let product of products) { 
+        if (product.id == id) return product; 
+    } 
+    return null; }
 
-function ap(name, cost) {let maxId=0;for(let p of ps){if(p.pid>maxId)maxId=p.pid;}ps.push({pid:maxId+1,n:name,c:cost});}
+function addProduct(name, cost) {
+    let maxId = 0; 
+    for (let product of products) { 
+        if (product.id > maxId) maxId = product.id;
+    } 
+    products.push({ id: maxId + 1, name: name, price: cost }); }
 
-function lp() {for(let p of ps) {console.log(p.n + " costs " + p.c + "€")};}
+function listProducts() {
+    for (let product of products) { 
+        console.log(product.name + " costs " + product.price + "€");
+    }
+}
 
-// Use functions
-let p1=gp(2);console.log(p1);ap("Tablet",399);lp();
+let myProduct = getProduct(2); 
+console.log(myProduct); 
+addProduct("Tablet", 399); 
+listProducts();
