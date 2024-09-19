@@ -6,13 +6,8 @@ let books = [
   { id: 3, name: "1984", price: 8.5 },
 ];
 
-function getBook(id) {
-  for (let book of books) {
-    if (book.id == id) {
-      return book;
-    }
-  }
-  return null;
+function getBook(id, books) {
+  return books.find((book) => book.id === id);
 }
 
 function addBook(name, price) {
@@ -29,7 +24,7 @@ function listBooks() {
   }
 }
 
-let myBook = getBook(2);
+let myBook = getBook(2, books);
 console.log(myBook);
 addBook("Fahrenheit 451", 9.2);
 listBooks();
